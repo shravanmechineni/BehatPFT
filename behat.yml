@@ -1,0 +1,65 @@
+default:
+  suites:
+    default:
+      contexts:
+        - HCP\ReusableContext
+  extensions:
+    Behat\MinkExtension:
+      default_session: selenium2
+      goutte:
+         guzzle_parameters:
+           verify: false
+    Drupal\DrupalExtension:
+            blackbox: ~
+
+allcountry:
+  suites:
+    allcountry:
+      paths:   [ %paths.base%/tests/HCP/CommonHCPFeatures ]
+      contexts:
+        - HCP\CommonHCPFeatures\Bootstrap\CommonHCPContext
+        - HCP\ReusableContext
+        - Drupal\DrupalExtension\Context\DrupalContext
+        - Drupal\DrupalExtension\Context\MinkContext
+  extensions:
+    Behat\MinkExtension:
+      selenium2:
+
+brazil:
+  suites:
+    brazil:
+      paths: [ %paths.base%/tests/HCP/SpecificCountryFeatures/BrazilHCPFeatures ]
+      contexts:
+        - HCP\SpecificCountryFeatures\BrazilHCPFeatures\Bootstrap\BrazilHCPContext
+        - HCP\ReusableContext
+        - Drupal\DrupalExtension\Context\DrupalContext
+        - Drupal\DrupalExtension\Context\MinkContext
+  extensions:
+    Behat\MinkExtension:
+      selenium2:
+
+uk:
+  suites:
+    uk:
+      paths: [ %paths.base%/tests/HCP/SpecificCountryFeatures/UKHCPFeatures ]
+      contexts:
+        - HCP\SpecificCountryFeatures\UKHCPFeatures\Bootstrap\UKHCPContext
+        - HCP\ReusableContext
+        - Drupal\DrupalExtension\Context\DrupalContext
+        - Drupal\DrupalExtension\Context\MinkContext
+  extensions:
+    Behat\MinkExtension:
+      selenium2: ~
+
+usa:
+  suites:
+    usa:
+      paths: [ %paths.base%/tests/HCP/SpecificCountryFeatures/USAHCPFeatures ]
+      contexts:
+        - HCP\SpecificCountryFeatures\USAHCPFeatures\Bootstrap\USAHCPContext
+        - HCP\ReusableContext
+        - Drupal\DrupalExtension\Context\DrupalContext
+        - Drupal\DrupalExtension\Context\MinkContext
+  extensions:
+    Behat\MinkExtension:
+      selenium2: ~
